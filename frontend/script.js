@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://voice-captcha-backend.herokuapp.com";  // Change to your Heroku backend URL
+const API_BASE_URL = "https://remarc-able-4ad78ce5058a.herokuapp.com";
 
 // Elements
 const userCommentInput = document.getElementById("user-comment");
