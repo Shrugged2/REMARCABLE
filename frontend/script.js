@@ -1,15 +1,21 @@
 const recordBtn = document.getElementById("record-btn");
-const statusText = document.getElementById("status");
+const recordingStatus = document.getElementById("recording-status");
+const captchaSection = document.getElementById("captcha-section");
+const captchaText = document.getElementById("captcha-text");
+const submitCaptchaBtn = document.getElementById("submit-captcha");
+
 let captchaId = null;
+let recordedBlob = null;
 
 async function fetchCaptcha() {
     const response = await fetch("http://127.0.0.1:5000/get-captcha");
     const data = await response.json();
-    document.getElementById("captcha-text").innerText = data.quote;
+    captchaText.innerText = data.quote;
     captchaId = data.id;
 }
 
 async function recordAudio() {
+    recordingStatus.innerText = "🎙️ Recording...";
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     const mediaRecorder = new MediaRecorder(stream);
     const audioChunks = [];
@@ -19,29 +25,44 @@ async function recordAudio() {
     };
 
     mediaRecorder.onstop = async () => {
-        const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
-        const formData = new FormData();
-        formData.append("audio", audioBlob);
-        formData.append("id", captchaId);
+        recordedBlob = new Blob(audioChunks, { type: "audio/wav" });
+        recordingStatus.innerText = "✅ Recording complete!";
 
-        statusText.innerText = "Verifying...";
-
-        const response = await fetch("http://127.0.0.1:5000/verify", {
-            method: "POST",
-            body: formData
-        });
-
-        const result = await response.json();
-        if (result.success) {
-            statusText.innerText = "✅ CAPTCHA Passed!";
-        } else {
-            statusText.innerText = `❌ Failed. You said: "${result.user_text}"`;
-        }
+        // Show CAPTCHA after a slight delay
+        setTimeout(() => {
+            captchaSection.classList.remove("hidden");
+            fetchCaptcha();
+        }, 1000);
     };
 
     mediaRecorder.start();
-    setTimeout(() => mediaRecorder.stop(), 4000); // Auto-stop after 4 sec
+    setTimeout(() => mediaRecorder.stop(), 4000);
+}
+
+async function sendAudio() {
+    if (!recordedBlob) {
+        alert("Record your comment first!");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("audio", recordedBlob);
+    formData.append("id", captchaId);
+
+    submitCaptchaBtn.innerText = "Verifying...";
+
+    const response = await fetch("http://127.0.0.1:5000/verify", {
+        method: "POST",
+        body: formData
+    });
+
+    const result = await response.json();
+    if (result.success) {
+        submitCaptchaBtn.innerText = "✅ Verified!";
+    } else {
+        submitCaptchaBtn.innerText = `❌ Try again! You said: "${result.user_text}"`;
+    }
 }
 
 recordBtn.addEventListener("click", recordAudio);
-fetchCaptcha();
+submitCaptchaBtn.addEventListener("click", sendAudio);
