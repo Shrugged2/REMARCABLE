@@ -13,7 +13,7 @@ Not sure how they will score third party hardware
 
 Finish the movie quote
 
-Link into voice recognition?
+lean into voice recognition?
 
 Audio speech to text? - openai API? whisper API.
 
@@ -39,3 +39,27 @@ Could organize by generation?
     Gem Z. TikTok brainrot
     Boomer movies
     Millenial pupper quotes
+
+
+Flow
+so ultimately wrap this as a service
+
+
+Webpage.
+    -Faux conversation
+        - Hey, I was thinking of having my birthday party get together on March 8th
+        - Please comment what you are going to bring.
+Go to post a comment.
+    Tom Says:
+        - Im bringing guacamole
+    Jenny says:
+        - I have onions and peppers!
+    Clayton says:
+        - I made Horchata and Agua Fresca. Yum!
+    Aubrey says:
+        - I'll bring the good vibes (and fajita meat, probably chicken and beef)
+    You say:
+        - Id like to bring tortillas
+
+You click submit and this capcha pops up.
+    Give
