@@ -11,8 +11,9 @@ Not sure how they will score third party hardware
 
 randomized capcha. generate a random number, have the user guess it. if wrong, no capcha.
 
-Finish the movie quote
+what about a games based capcha? make the user shoot a basketball or do a quick flappy bird type game.
 
+Finish the movie quote
 lean into voice recognition?
 
 Audio speech to text? - openai API? whisper API.
