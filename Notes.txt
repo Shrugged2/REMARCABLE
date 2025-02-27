@@ -9,7 +9,7 @@ Flick pixels off the screen in a reasonable way. could track the pattern of swip
 integration of breathalyzer to posting on twitter?
 Not sure how they will score third party hardware
 
-
+randomized capcha. generate a random number, have the user guess it. if wrong, no capcha.
 
 Finish the movie quote
 

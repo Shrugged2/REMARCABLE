@@ -1,11 +1,13 @@
 import openai
 import speech_recognition as sr
+import os
 from fuzzywuzzy import fuzz
 from captcha import get_random_captcha
+from dotenv import load_dotenv
 
-# Set  OpenAI API key
-openai.api_key = "OPENAI_API_KEY"
-
+# Set OpenAI API key
+load_dotenv()  # Load .env file
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def record_voice():
     """Captures user's voice input."""
