@@ -1,0 +1,9 @@
+openai
+SpeechRecognition
+flask
+
+
+
+# pyaudio
+# fuzzywuzzy
+# python-Levenshtein
