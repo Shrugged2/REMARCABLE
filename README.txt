@@ -3,10 +3,18 @@ Meet REMARC-ABLE.
 
 REvolutionary Method of Allowing Comments using Access Based Linguistic Environment
 
+For too long, bots have been competing with capchas. selecting pictures of street signs and byclists
+These techniques are antequated. Outdated. And frankly annoying
+
+This tool provides a proof of humanity capcha that ensures only real people will ever use your service.
+
+
+
+
 
 Here is some info on the project.
 
-Trying to think though structure.
+structure.
 /voice-captcha
 │── backend/
 │   │── app.py               # Flask backend for handling voice processing
