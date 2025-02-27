@@ -1,4 +1,6 @@
-const API_BASE_URL = "http://127.0.0.1:5000";  // Flask backend URL
+const API_BASE_URL = "https://voice-captcha-backend.herokuapp.com";  // Change to your Heroku backend URL
+
+// Elements
 const userCommentInput = document.getElementById("user-comment");
 const submitCommentBtn = document.getElementById("submit-comment");
 const commentSection = document.getElementById("comment-section");
@@ -12,26 +14,29 @@ let userComment = "";
 let captchaId = null;
 let recordedBlob = null;
 
-// Fetch existing comments from backend
+// 📌 Load existing comments on page load
 async function loadComments() {
-    const response = await fetch(`${API_BASE_URL}/get-comments`);
-    const comments = await response.json();
-
-    commentSection.innerHTML = `<h2>💬 Comments</h2>`; // Reset comments section
-    comments.forEach(comment => {
-        commentSection.innerHTML += `
-            <div class="comment">
-                <div class="comment-avatar">🧑‍💻</div>
-                <div class="comment-content">
-                    <p><strong>${comment.username}</strong> <span class="comment-timestamp"> - Just now</span></p>
-                    <p>${comment.comment}</p>
+    try {
+        const response = await fetch(`${API_BASE_URL}/get-comments`);
+        const comments = await response.json();
+        commentSection.innerHTML = `<h2>💬 Comments</h2>`; // Reset section
+        comments.forEach(comment => {
+            commentSection.innerHTML += `
+                <div class="comment">
+                    <div class="comment-avatar">🧑‍💻</div>
+                    <div class="comment-content">
+                        <p><strong>${comment.username}</strong> <span class="comment-timestamp"> - Just now</span></p>
+                        <p>${comment.comment}</p>
+                    </div>
                 </div>
-            </div>
-        `;
-    });
+            `;
+        });
+    } catch (error) {
+        console.error("Error loading comments:", error);
+    }
 }
 
-// Handle comment submission
+// 📌 Handle comment submission (Step 1)
 submitCommentBtn.addEventListener("click", async () => {
     userComment = userCommentInput.value.trim();
     if (!userComment) {
@@ -39,22 +44,28 @@ submitCommentBtn.addEventListener("click", async () => {
         return;
     }
 
-    const response = await fetch(`${API_BASE_URL}/submit-comment`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ comment: userComment })
-    });
+    try {
+        // Send the comment to the backend to generate a CAPTCHA challenge
+        const response = await fetch(`${API_BASE_URL}/submit-comment`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ comment: userComment })
+        });
 
-    const data = await response.json();
-    if (data.captcha) {
-        userCommentInput.value = ""; // Clear input field
-        captchaSection.classList.remove("hidden");
-        captchaText.innerText = data.captcha;
-        captchaId = data.captcha_id;
+        const data = await response.json();
+        if (data.captcha) {
+            // Hide input, show CAPTCHA
+            userCommentInput.value = "";  // Clear input field
+            captchaSection.classList.remove("hidden");
+            captchaText.innerText = data.captcha;
+            captchaId = data.captcha_id;
+        }
+    } catch (error) {
+        console.error("Error submitting comment:", error);
     }
 });
 
-// Handle voice recording
+// 📌 Handle voice recording (Step 2)
 async function recordAudio() {
     recordingStatus.innerText = "🎙️ Recording...";
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -71,12 +82,12 @@ async function recordAudio() {
     };
 
     mediaRecorder.start();
-    setTimeout(() => mediaRecorder.stop(), 4000);
+    setTimeout(() => mediaRecorder.stop(), 4000); // Stop after 4 seconds
 }
 
 recordBtn.addEventListener("click", recordAudio);
 
-// Verify CAPTCHA and add comment
+// 📌 Verify CAPTCHA & Submit Final Comment (Step 3)
 async function verifyCaptcha() {
     if (!recordedBlob) {
         alert("Record your answer first!");
@@ -90,21 +101,26 @@ async function verifyCaptcha() {
 
     submitCaptchaBtn.innerText = "Verifying...";
 
-    const response = await fetch(`${API_BASE_URL}/verify`, {
-        method: "POST",
-        body: formData
-    });
+    try {
+        const response = await fetch(`${API_BASE_URL}/verify`, {
+            method: "POST",
+            body: formData
+        });
 
-    const result = await response.json();
-    if (result.success) {
-        captchaSection.classList.add("hidden");
-        loadComments(); // Refresh comments after successful CAPTCHA
-    } else {
-        alert(`❌ Try again! You said: "${result.user_text}"`);
+        const result = await response.json();
+        if (result.success) {
+            // Hide CAPTCHA, refresh comments
+            captchaSection.classList.add("hidden");
+            loadComments();
+        } else {
+            alert(`❌ Try again! You said: "${result.user_text}"`);
+        }
+    } catch (error) {
+        console.error("Error verifying CAPTCHA:", error);
     }
 }
 
 submitCaptchaBtn.addEventListener("click", verifyCaptcha);
 
-// Load initial comments on page load
+// 📌 Load comments when the page starts
 loadComments();
