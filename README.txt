@@ -8,10 +8,23 @@ Here is some info on the project.
 
 Trying to think though structure.
 /voice-captcha
-│── quotes.json        # Stores all CAPTCHA phrases
-│── captcha.py         # Handles loading and selecting quotes
-│── main.py            # Runs the CAPTCHA logic
-│── requirements.txt   # Dependencies (optional)
+│── backend/
+│   │── app.py               # Flask backend for handling voice processing
+│   │── captcha.py           # Handles CAPTCHA logic (loads quotes, verification)
+│   │── requirements.txt      # Dependencies
+│   │── quotes.json          # Stores CAPTCHA phrases
+│   └── static/
+│       └── audio/           # (Optional) Stores temporary user audio files
+│
+│── frontend/
+│   │── index.html           # Webpage with CAPTCHA UI
+│   │── script.js            # Handles audio capture & API interaction
+│   │── styles.css           # Styles for CAPTCHA UI
+│
+│── README.md                # Instructions
+│── run.sh                   # Start backend & frontend (optional)
+│── .gitignore                # Ignore temp files
+
 
 Requirements:
 openai → To use OpenAI’s Whisper API for speech-to-text.
