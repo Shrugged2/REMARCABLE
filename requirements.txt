@@ -1,7 +1,7 @@
 openai
 SpeechRecognition
 flask
-
+python-dotenv
 
 
 # pyaudio
