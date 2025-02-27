@@ -1,8 +1,10 @@
 import openai
 import speech_recognition as sr
 import os
+#import capcha
+
 from fuzzywuzzy import fuzz
-from captcha import get_random_captcha
+# from captcha import get_random_captcha
 from dotenv import load_dotenv
 
 # Set OpenAI API key

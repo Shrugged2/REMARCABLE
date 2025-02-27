@@ -7,3 +7,4 @@ flask
 # pyaudio
 # fuzzywuzzy
 # python-Levenshtein
+# capcha
