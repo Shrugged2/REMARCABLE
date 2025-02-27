@@ -1,0 +1,67 @@
+Project Requirements
+1. What to Create
+    a. Projects should address the overarching question of using AI and security to solve modern security
+challenges in web applications.
+    b. Emphasize identifying and/or fixing vulnerabilities and integrating innovative security features.
+2. Functionality
+    a. The project must be functional and runnable when being submitted.
+3. Platforms
+    a. Ensure compatibility with any specified platforms or frameworks stated in the submission requirements
+(e.g., web-based solutions should be browser-accessible or containerized, if required).
+4. New Work Only
+    a. All coding must be done during the hackathon.
+    b. Research, planning, and conceptualization beforehand are allowed.
+5. Testing
+    a. Participants should provide clear ways for judges to test or evaluate vulnerabilities, fixes, or AI-based
+tools during the judging period.
+
+Submission Requirements
+1. Working Project + README (2)
+    a. Provide a README that includes:
+        i. Team member names
+        ii. Tools and resources used
+        iii. Build and run instructions for the project
+2. Demonstration Video (Max 3 minutes)
+    a. Highlight key features, especially any vulnerability scanning or security enhancement modules.
+    b. Show how an attacker might exploit a web app, and/or how your solution defends against such exploits.
+    c. Upload to YouTube, Vimeo, or any similar platform, and provide the link.
+3. Code Repository
+    a. Public GitHub repository (or another platform) link.
+    b. Must show commit history that aligns with hackathon timing rules.
+4. API/Tools Used
+    a. List all external APIs, AI frameworks, or security tools integrated into your project
+5. Future Improvements
+    a. Outline potential expansions (e.g., broader vulnerability coverage, additional AI models, refined UI/UX,
+etc.).
+6. Working Demo
+    a. Provide access to a live demo, test build, or website (if relevant).
+    b. If credentials are needed, include them.
+7. Originality
+    a. Projects must be original and respect intellectual property rights.
+
+Ideas & Directions for Participants
+Below are some potential ideas/hints that focus on both finding vulnerabilities in web applications and enhancing security.
+1. Improved captcha generation
+    a. Fed up with bots spamming your forms? Try creating a more user-friendly captcha that still keeps
+automated attacks at bay.
+2. Secure Logging & Monitoring
+    a. Set up detailed logs for critical activities (like logins or admin actions), and build a simple monitoring tool
+that flags anything suspicious.
+3. Multi-Factor Authentication
+    a. Add an extra step (like a text code or an authenticator app) to your login process. It’s not as scary to
+implement as you might think, and it’s a huge security win.
+4. Enhance Current Features with Security in Mind
+    a. Got an existing feature that’s a bit wobbly on security? Shore it up by reviewing how data is handled or
+adding checks for risky user inputs.
+5. Demonstrate Web Based Security
+    a. Want to show off your security know-how? Build a small demo that clearly illustrates a common attack
+(like XSS or SQL injection) and then show how to prevent it.
+6. Not Sure? No worries!
+    a. If you’re stuck or not feeling any of these ideas, just look for any security holes in the app and fix them.
+Even small patches can make a big difference.
+7. Privacy Enhancement via Secure Data Handling
+    a. Focus on encrypting or anonymizing sensitive data, like user info or transaction records. This is
+especially helpful if your project deals with personal data.
+8. Fun and innovative way to make the website more secure
+    a. Get creative—maybe turn security testing into a mini-game or add a humorous twist while still reinforcing
+best practices. It’s a great way to keep folks engaged.

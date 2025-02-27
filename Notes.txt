@@ -1,0 +1,41 @@
+https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages
+How to setup a github page
+
+Login flow? Comment validation?
+
+“Clean sand off the screen"
+Flick pixels off the screen in a reasonable way. could track the pattern of swiping?
+
+integration of breathalyzer to posting on twitter?
+Not sure how they will score third party hardware
+
+
+
+Finish the movie quote
+
+Link into voice recognition?
+
+Audio speech to text? - openai API? whisper API.
+
+
+could be fun to find:
+Top movie quotes and recognizable lines
+Song lyrics
+To be or not to be….
+
+
+Structures
+Database of quotes
+First half and finishing
+
+Link to voice recognition audio
+
+Validate that
+
+
+
+Don’t actually do this but a possible thing with more time
+Could organize by generation?
+    Gem Z. TikTok brainrot
+    Boomer movies
+    Millenial pupper quotes
