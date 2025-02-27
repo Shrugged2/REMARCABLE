@@ -14,7 +14,7 @@ let userComment = "";
 let captchaId = null;
 let recordedBlob = null;
 
-// 📌 Load existing comments on page load
+// Load existing comments on page load
 async function loadComments() {
     try {
         const response = await fetch(`${API_BASE_URL}/get-comments`);
@@ -36,7 +36,7 @@ async function loadComments() {
     }
 }
 
-// 📌 Handle comment submission (Step 1)
+// Handle comment submission (Step 1)
 submitCommentBtn.addEventListener("click", async () => {
     userComment = userCommentInput.value.trim();
     if (!userComment) {
@@ -65,7 +65,7 @@ submitCommentBtn.addEventListener("click", async () => {
     }
 });
 
-// 📌 Handle voice recording (Step 2)
+// Handle voice recording (Step 2)
 async function recordAudio() {
     recordingStatus.innerText = "🎙️ Recording...";
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -87,7 +87,7 @@ async function recordAudio() {
 
 recordBtn.addEventListener("click", recordAudio);
 
-// 📌 Verify CAPTCHA & Submit Final Comment (Step 3)
+// Verify CAPTCHA & Submit Final Comment (Step 3)
 async function verifyCaptcha() {
     if (!recordedBlob) {
         alert("Record your answer first!");
@@ -122,5 +122,5 @@ async function verifyCaptcha() {
 
 submitCaptchaBtn.addEventListener("click", verifyCaptcha);
 
-// 📌 Load comments when the page starts
+// Load comments when the page starts
 loadComments();
