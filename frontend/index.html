@@ -12,24 +12,56 @@
         <p>Hey, I was thinking of having my birthday party get together on March 8th.</p>
         <p><strong>Please comment what you are going to bring!</strong></p>
 
-        <div class="comment-section">
-            <div class="comment"><strong>Tom says:</strong> I'm bringing guacamole 🥑</div>
-            <div class="comment"><strong>Jenny says:</strong> I have onions and peppers! 🌶️🧅</div>
-            <div class="comment"><strong>Clayton says:</strong> I made Horchata and Agua Fresca. Yum! 🍹</div>
-            <div class="comment"><strong>Aubrey says:</strong> I'll bring the good vibes (and fajita meat, probably chicken and beef) 🍗🥩</div>
-            <div class="comment user-comment"><strong>You say:</strong> I'd like to bring tortillas 🌮</div>
+        <div class="comment-section" id="comment-section">
+            <h2>💬 Comments</h2>
+
+            <div class="comment">
+                <div class="comment-avatar">👨‍🦰</div>
+                <div class="comment-content">
+                    <p><strong>Tom</strong> <span class="comment-timestamp"> - 3m ago</span></p>
+                    <p>I'm bringing guacamole 🥑</p>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar">👩</div>
+                <div class="comment-content">
+                    <p><strong>Jenny</strong> <span class="comment-timestamp"> - 2m ago</span></p>
+                    <p>I have onions and peppers! 🌶️🧅</p>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar">🧑‍🍳</div>
+                <div class="comment-content">
+                    <p><strong>Clayton</strong> <span class="comment-timestamp"> - 1m ago</span></p>
+                    <p>I made Horchata and Agua Fresca. Yum! 🍹</p>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar">👩‍🎤</div>
+                <div class="comment-content">
+                    <p><strong>Aubrey</strong> <span class="comment-timestamp"> - 30s ago</span></p>
+                    <p>I'll bring the good vibes (and fajita meat, probably chicken and beef) 🍗🥩</p>
+                </div>
+            </div>
         </div>
 
+        <!-- Post a Comment Section -->
         <div class="comment-box">
             <h2>Post a Comment</h2>
-            <button id="record-btn">🎤 Record Your Comment</button>
-            <p id="recording-status"></p>
+            <textarea id="user-comment" placeholder="Type your comment here..." rows="3"></textarea>
+            <button id="submit-comment">Submit</button>
+        </div>
 
-            <div id="captcha-section" class="hidden">
-                <h3>✅ Complete the CAPTCHA</h3>
-                <p id="captcha-text">Loading CAPTCHA...</p>
-                <button id="submit-captcha">✔️ Submit</button>
-            </div>
+        <!-- CAPTCHA Section (Hidden Initially) -->
+        <div id="captcha-section" class="hidden">
+            <h3>✅ Complete the CAPTCHA</h3>
+            <p id="captcha-text">Loading CAPTCHA...</p>
+            <button id="record-btn">🎤 Record Answer</button>
+            <p id="recording-status"></p>
+            <button id="submit-captcha">✔️ Submit</button>
         </div>
     </div>
 
