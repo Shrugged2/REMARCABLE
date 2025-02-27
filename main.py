@@ -1,3 +1,6 @@
+
+# dont use this file. fuck this file
+
 import openai
 import speech_recognition as sr
 import os
