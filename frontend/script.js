@@ -65,9 +65,13 @@ submitCommentBtn.addEventListener("click", async () => {
     }
 });
 
+// Debugging script
+
+
+
+
 // Handle voice recording (Step 2)
 async function recordAudio() {
-    recordingStatus.innerText = "🎙️ Recording...";
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     const mediaRecorder = new MediaRecorder(stream);
     const audioChunks = [];
@@ -77,13 +81,37 @@ async function recordAudio() {
     };
 
     mediaRecorder.onstop = async () => {
-        recordedBlob = new Blob(audioChunks, { type: "audio/wav" });
-        recordingStatus.innerText = "✅ Recording complete!";
+        const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+        const formData = new FormData();
+        formData.append("audio", audioBlob);
+        formData.append("id", captchaId);
+
+        console.log("🚀 Sending audio data...", formData);
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/verify`, {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+            console.log("🎯 Server Response:", result);
+
+            if (result.success) {
+                statusText.innerText = "✅ CAPTCHA Passed!";
+            } else {
+                statusText.innerText = `❌ Failed. You said: "${result.user_text}"`;
+            }
+        } catch (error) {
+            console.error("❌ Error sending audio:", error);
+            statusText.innerText = "❌ Error: Unable to verify";
+        }
     };
 
     mediaRecorder.start();
-    setTimeout(() => mediaRecorder.stop(), 4000); // Stop after 4 seconds
+    setTimeout(() => mediaRecorder.stop(), 4000); // Auto-stop after 4 sec
 }
+
 
 recordBtn.addEventListener("click", recordAudio);
 
