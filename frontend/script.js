@@ -73,4 +73,11 @@ async function verifyCaptcha() {
 
     const result = await response.json();
     if (result.success) {
-        ca
+        captchaSection.classList.add("hidden");
+        commentSection.innerHTML += `<div class="comment user-comment"><div class="comment-avatar">🧑‍💻</div><div class="comment-content"><p><strong>You</strong> <span class="comment-timestamp"> - Just now</span></p><p>${userComment}</p></div></div>`;
+    } else {
+        alert(`❌ Try again! You said: "${result.user_text}"`);
+    }
+}
+
+submitCaptchaBtn.addEventListener("click", verifyCaptcha);
