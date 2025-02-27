@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice CAPTCHA Demo</title>
+    <title>Comment Board with Voice CAPTCHA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Complete the Phrase</h2>
-    <p id="captcha-text">Loading...</p>
-    <button id="record-btn">🎤 Record</button>
-    <p id="status"></p>
+    <div class="container">
+        <h1>🎉 Birthday Get-Together - March 8th</h1>
+        <p>Hey, I was thinking of having my birthday party get together on March 8th.</p>
+        <p><strong>Please comment what you are going to bring!</strong></p>
+
+        <div class="comment-section">
+            <div class="comment"><strong>Tom says:</strong> I'm bringing guacamole 🥑</div>
+            <div class="comment"><strong>Jenny says:</strong> I have onions and peppers! 🌶️🧅</div>
+            <div class="comment"><strong>Clayton says:</strong> I made Horchata and Agua Fresca. Yum! 🍹</div>
+            <div class="comment"><strong>Aubrey says:</strong> I'll bring the good vibes (and fajita meat, probably chicken and beef) 🍗🥩</div>
+            <div class="comment user-comment"><strong>You say:</strong> I'd like to bring tortillas 🌮</div>
+        </div>
+
+        <div class="comment-box">
+            <h2>Post a Comment</h2>
+            <button id="record-btn">Post Your Comment</button>
+            <p id="recording-status"></p>
+
+            <div id="captcha-section" class="hidden">
+                <h3>✅ Complete the CAPTCHA</h3>
+                <p id="captcha-text">Loading CAPTCHA...</p>
+                <button id="submit-captcha">✔️ Submit</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
