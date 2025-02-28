@@ -37,9 +37,9 @@ CAPTCHAs should be a security feature, not a frustration.
 
 Note: All my testing was through Chrome Browser on desktop. If you have issues, try using chrome.
 I tried it on mobile and it thought I was speaking Korean, so.... mobile support not a thing at this time.
-More info on the project.
 
-structure.
+
+### structure.
 /remarc-able
 │── backend/
 │   │── app.py               # Flask backend for handling voice processing (main function)
@@ -97,7 +97,7 @@ Requirements: See requirements.txt in backend file. None for user at this time
 
 Github demo site (https://shrugged2.github.io/REMARCABLE/frontend/)
 
-Github repo (https://github.com/Shrugged2/REMARCABLE/tree/main)
+Github repo (https://github.com/Shrugged2/REMARCABLE)
 
 
 🚀 Next Steps and things to continue to work on
