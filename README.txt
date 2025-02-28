@@ -3,7 +3,7 @@ Hi
 Created at Boko Hacks 2025 | Built by Rick Wilson
 
 ## Overview
-Traditional CAPTCHAs are **outdated, frustrating, and easily bypassed by bots.**
+Traditional CAPTCHAs are outdated, frustrating, and easily bypassed by bots.
 
 # For too long, CAPTCHA systems have been stuck in the past
 forcing users to squint at blurry street signs,
@@ -30,10 +30,10 @@ Upgrade to a REMARC-ABLE CAPTCHA and let your users prove their humanity, withou
 
 
 ## How It Works
-1️⃣ **User submits a comment** – Triggers a voice CAPTCHA challenge.
-2️⃣ **They complete a famous quote/song lyric** – Speaking the missing phrase.
-3️⃣ **AI verifies speech** – If correct, their comment is posted.
-4️⃣ **Bots get blocked** – Ensuring only humans can engage.
+1️⃣ User submits a comment – Triggers a voice CAPTCHA challenge.
+2️⃣ They complete a famous quote/song lyric – Speaking the missing phrase.
+3️⃣ AI verifies speech – If correct, their comment is posted.
+4️⃣ Bots get blocked – Ensuring only humans can engage.
 
 
 Note: All my testing was through Chrome Browser on desktop. If you have issues, try using chrome.
@@ -71,26 +71,26 @@ Requirements: See requirements.txt in backend file. None for user at this time
 
 ## Tools & Resources Used
 
-### ** Core Technologies**
-- **Python (Flask)** – Backend API to handle CAPTCHA requests & validation
-- **JavaScript (Frontend)** – Manages user interactions, recording, and data submission
-- **HTML/CSS** – Designed the UI for a clean, user-friendly experience
-- **Heroku** – Deployed backend for live access
-- **GitHub Pages** – Hosted the frontend for public testing
+### Core Technologies
+- Python (Flask) – Backend API to handle CAPTCHA requests & validation
+- JavaScript (Frontend) – Manages user interactions, recording, and data submission
+- HTML/CSS – Designed the UI for a clean, user-friendly experience
+- Heroku – Deployed backend for live access
+- GitHub Pages – Hosted the frontend for public testing
 
-### ** Voice Processing**
-- **OpenAI Whisper API** – Converts speech into text for CAPTCHA verification
-- **MediaRecorder API** – Captures and processes voice input directly from users
+### Voice Processing
+- OpenAI Whisper API – Converts speech into text for CAPTCHA verification
+- MediaRecorder API – Captures and processes voice input directly from users
 
-### ** DevOps & Deployment**
-- **Git/GitHub** – Version control
-- **Heroku CLI** – Managed backend deployment
-- **Environment Variables** – Secured API keys via `.env` files
+### DevOps & Deployment
+- Git/GitHub – Version control
+- Heroku CLI – Managed backend deployment
+- Environment Variables – Secured API keys via `.env` files
 
-### ** Additional Libraries**
-- **FuzzyWuzzy** – Enables flexible text matching for responses
-- **Flask-CORS** – Manages frontend-backend communication
-- **Werkzeug** – Handles audio file uploads and temporary storage
+### Additional Libraries
+- FuzzyWuzzy – Enables flexible text matching for responses
+- Flask-CORS – Manages frontend-backend communication
+- Werkzeug – Handles audio file uploads and temporary storage
 
 
 
