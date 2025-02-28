@@ -35,6 +35,9 @@ Upgrade to a REMARC-ABLE CAPTCHA and let your users prove their humanity, withou
 3️⃣ **AI verifies speech** – If correct, their comment is posted.
 4️⃣ **Bots get blocked** – Ensuring only humans can engage.
 
+
+Note: All my testing was through Chrome Browser on desktop. If you have issues, try using chrome.
+I tried it on mobile and it thought I was speaking Korean, so.... mobile support not a thing at this time.
 More info on the project.
 
 structure.
@@ -102,6 +105,7 @@ Github repo (https://github.com/Shrugged2/REMARCABLE/tree/main)
 - Improve response time & accuracy
 - Active listener for microphone cutoff
 - Multi-language support
+- Different device support
 - Enhance usability & accessibility
 - Add additional quotes
 - Categorize quotes by theme
