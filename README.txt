@@ -19,9 +19,8 @@ Instead of battling bots with outdated image recognition,
 this system leverages the power of speech
 challenging users to complete famous quotes, song lyrics, and iconic phrases using their own voice.
 
-✅ Seamless User Experience – No more tedious clicks or brain teasers, just speak and go.
-🚀 Faster & More Accessible – More intuitive for real users, harder for automated scripts.
-🤖 Bot-Proof Security – AI can’t fake human speech patterns with accuracy.
+No more tedious clicks or brain teasers, just speak and go.
+More intuitive for real users, harder for automated scripts.
 
 
 CAPTCHAs should be a security feature, not a frustration.
