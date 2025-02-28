@@ -11,7 +11,8 @@ click on endless bicycles,
 and prove they aren’t robots in the most annoying ways possible.
 
 ## introducing
-REvolutionary Method of Allowing Comments using Access-Based Linguistic Environment (REMARC-ABLE)
+REvolutionary Method of Allowing Comments using Access-Based Linguistic Environment
+also known as ✨REMARC-ABLE ✨
 
 a paradigm changing, voice-based authentication system that ensures only real humans can access your platform.
 
