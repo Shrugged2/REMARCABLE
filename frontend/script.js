@@ -14,14 +14,14 @@ let userComment = "";
 let captchaId = null;
 let recordedBlob = null;
 
-//  Load existing comments on page load
-aasync function loadComments() {
+// ✅ **Load existing comments on page load**
+async function loadComments() {
     try {
         const response = await fetch(`${API_BASE_URL}/get-comments`);
         const comments = await response.json();
 
-        // Instead of overwriting, append to existing comments
-        const existingComments = commentSection.innerHTML; // Preserve initial HTML comments
+        // Preserve existing comments
+        const existingComments = commentSection.innerHTML;
         let newComments = "";
 
         comments.forEach(comment => {
@@ -42,7 +42,6 @@ aasync function loadComments() {
         console.error("❌ Error loading comments:", error);
     }
 }
-
 
 // ✅ **Handle Comment Submission (Step 1)**
 submitCommentBtn.addEventListener("click", async () => {
