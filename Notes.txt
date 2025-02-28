@@ -1,12 +1,12 @@
-https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages
-How to setup a github page
+https://github.com/Nick4453/Boko-Hacks-2025
 
 Login flow? Comment validation?
 
 “Clean sand off the screen"
 Flick pixels off the screen in a reasonable way. could track the pattern of swiping?
 
-integration of breathalyzer to posting on twitter?
+integration of breathalyzer to posting?
+rasp pi
 Not sure how they will score third party hardware
 
 randomized capcha. generate a random number, have the user guess it. if wrong, no capcha.
@@ -39,11 +39,11 @@ Don’t actually do this but a possible thing with more time
 Could organize by generation?
     Gem Z. TikTok brainrot
     Boomer movies
-    Millenial pupper quotes
+    Millenial will farrell and adam sandler quotes
 
 
 Flow
-so ultimately wrap this as a service
+so ultimately the goal is probably to wrap this as a service
 
 
 Webpage.
@@ -63,4 +63,7 @@ Go to post a comment.
         - Id like to bring tortillas
 
 You click submit and this capcha pops up.
-    Give
+
+
+
+gas
