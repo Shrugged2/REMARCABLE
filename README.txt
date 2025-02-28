@@ -21,10 +21,10 @@ challenging users to complete famous quotes, song lyrics, and iconic phrases usi
 
 No more tedious clicks or brain teasers, just speak and go.
 More intuitive for real users, harder for automated scripts.
-
-
 CAPTCHAs should be a security feature, not a frustration.
-Upgrade to a REMARC-ABLE CAPTCHA and let your users prove their humanity, without the hassle.
+
+
+## Upgrade to a REMARC-ABLE CAPTCHA and let your users prove their humanity, without the hassle.
 
 
 
