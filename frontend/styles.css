@@ -110,6 +110,27 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.special-button {
+    background-color: rgba(128, 128, 128, 0.6); /* 🎭 Semi-transparent grey */
+    color: white;
+    font-weight: bold;
+    font-size: 14px; /* 🔹 Smaller text */
+    padding: 8px 16px; /* 🔹 Smaller button size */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.special-button:hover {
+    background-color: rgba(128, 128, 128, 0.8); /* Slightly darker on hover */
+    transform: scale(1.03);
+}
+
+.special-button:active {
+    background-color: rgba(100, 100, 100, 0.9); /* Even darker when clicked */
+    transform: scale(0.97);
+}
 
 .hidden {
     display: none;
