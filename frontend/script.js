@@ -65,8 +65,6 @@ submitCommentBtn.addEventListener("click", async () => {
     }
 });
 
-// Debugging script
-
 
 
 
@@ -85,8 +83,27 @@ async function recordAudio() {
         const formData = new FormData();
         formData.append("audio", audioBlob);
         formData.append("id", captchaId);
+        // Debugging script
+        console.log(" Sending audio data...", formData);
+        try {
+            console.log(" Sending request to:", `${API_BASE_URL}/verify`);
+            console.log(" FormData contents:");
+                 for (let pair of formData.entries()) {
+            console.log(pair[0] + ": ", pair[1]);  // Logs all form data
+      }
 
-        console.log("🚀 Sending audio data...", formData);
+                const response = await fetch(`${API_BASE_URL}/verify`, {
+                    method: "POST",
+                    body: formData
+                });
+
+                console.log(" Raw response:", response);
+
+                const result = await response.json();
+                console.log(" Server Response:", result);
+            } catch (error) {
+                console.error(" Fetch error:", error);
+      }
 
         try {
             const response = await fetch(`${API_BASE_URL}/verify`, {
