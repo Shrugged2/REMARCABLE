@@ -86,10 +86,35 @@ async function recordAudio() {
         // Debugging script
         console.log(" Sending audio data...", formData);
         try {
-            console.log(" Sending request to:", `${API_BASE_URL}/verify`);
-            console.log(" FormData contents:");
-                 for (let pair of formData.entries()) {
-            console.log(pair[0] + ": ", pair[1]);  // Logs all form data
+    const response = await fetch(`${API_BASE_URL}/verify`, {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+
+    console.log("🔍 Raw response:", response);
+
+    if (!response.ok) {
+        throw new Error(`❌ HTTP ${response.status} - ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    console.log("🎯 Server Response:", result);
+
+    // ✅ Show popup if the response is successful
+    if (result.success) {
+        alert("YAAAAAASSSS BITCHES! 🎉🎊✨");
+    } else {
+        alert(`❌ Incorrect! You said: "${result.user_text}", but expected: "${result.expected}"`);
+    }
+
+} catch (error) {
+    console.error("❌ Fetch Error:", error.message);
+    alert("Something went wrong! 😭");
+}
+///// fuck it lets see if it breaks
       }
                     // I dont know anymore. i dont worry about the robot uprising because computers are too pedantic to ever come up with creative ways to kill us
             const response = await fetch(`${API_BASE_URL}/verify`, {
