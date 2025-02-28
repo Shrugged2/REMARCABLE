@@ -56,6 +56,25 @@ submitCommentBtn.addEventListener("click", async () => {
     }
 });
 
+// ✅ Function to Add a Comment to the Page Instantly with Animation
+function addCommentToDOM(username, comment, isNew) {
+    const commentHTML = document.createElement("div");
+    commentHTML.classList.add("comment");
+    if (isNew) {
+        commentHTML.classList.add("animated-comment"); // Apply animation only for new comments
+    }
+    commentHTML.innerHTML = `
+        <div class="comment-avatar">🧑‍💻</div>
+        <div class="comment-content">
+            <p><strong>${username}</strong> <span class="comment-timestamp"> - Just now</span></p>
+            <p>${comment}</p>
+        </div>
+    `;
+
+    // Append the new comment to the comment section
+    commentSection.appendChild(commentHTML);
+}
+
 // ✅ **Handle Audio Recording (Step 2)**
 async function recordAudio() {
     try {

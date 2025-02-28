@@ -70,6 +70,31 @@ textarea {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 8px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    opacity: 1; /* Ensure existing comments appear instantly */
+}
+
+.animated-comment {
+    animation: fadeInSlideUp 0.5s ease-out;
+}
 
 button {
     background-color: #007bff;
