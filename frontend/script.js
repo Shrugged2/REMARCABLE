@@ -91,6 +91,14 @@ async function recordAudio() {
                  for (let pair of formData.entries()) {
             console.log(pair[0] + ": ", pair[1]);  // Logs all form data
       }
+                    // I dont know anymore. i dont worry about the robot uprising because computers are too pedantic to ever come up with creative ways to kill us
+            const response = await fetch(`${API_BASE_URL}/verify`, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json"  // ✅ Ensures JSON response
+                }
+            });
 
                 const response = await fetch(`${API_BASE_URL}/verify`, {
                     method: "POST",
