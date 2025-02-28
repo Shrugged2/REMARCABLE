@@ -3,7 +3,6 @@ const API_BASE_URL = "https://remarc-able-4ad78ce5058a.herokuapp.com";
 // Elements
 const userCommentInput = document.getElementById("user-comment");
 const submitCommentBtn = document.getElementById("submit-comment");
-const commentSection = document.getElementById("comment-section");
 const captchaSection = document.getElementById("captcha-section");
 const captchaText = document.getElementById("captcha-text");
 const recordBtn = document.getElementById("record-btn");
@@ -13,35 +12,6 @@ const submitCaptchaBtn = document.getElementById("submit-captcha");
 let userComment = "";
 let captchaId = null;
 let recordedBlob = null;
-
-// ✅ **Load existing comments on page load**
-async function loadComments() {
-    try {
-        const response = await fetch(`${API_BASE_URL}/get-comments`);
-        const comments = await response.json();
-
-        // Preserve existing comments
-        const existingComments = commentSection.innerHTML;
-        let newComments = "";
-
-        comments.forEach(comment => {
-            newComments += `
-                <div class="comment">
-                    <div class="comment-avatar">🧑‍💻</div>
-                    <div class="comment-content">
-                        <p><strong>${comment.username}</strong> <span class="comment-timestamp"> - Just now</span></p>
-                        <p>${comment.comment}</p>
-                    </div>
-                </div>
-            `;
-        });
-
-        // Append new comments while keeping existing ones
-        commentSection.innerHTML = existingComments + newComments;
-    } catch (error) {
-        console.error("❌ Error loading comments:", error);
-    }
-}
 
 // ✅ **Handle Comment Submission (Step 1)**
 submitCommentBtn.addEventListener("click", async () => {
@@ -89,7 +59,6 @@ async function recordAudio() {
             await verifyCaptcha();
         };
 
-        // Start recording and stop after 4 seconds
         mediaRecorder.start();
         setTimeout(() => mediaRecorder.stop(), 4000);
 
@@ -139,7 +108,6 @@ async function verifyCaptcha() {
         if (result.success) {
             alert("🎉 YAAAAAASSSS BITCHES! 🎊✨");
             captchaSection.classList.add("hidden");  // Hide CAPTCHA
-            loadComments();  // Refresh comments
         } else {
             alert(`❌ Try again! You said: "${result.user_text}", but expected: "${result.expected}"`);
         }
@@ -152,6 +120,3 @@ async function verifyCaptcha() {
 }
 
 submitCaptchaBtn.addEventListener("click", verifyCaptcha);
-
-// ✅ **Load comments when the page starts**
-loadComments();
