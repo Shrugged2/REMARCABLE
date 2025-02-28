@@ -15,7 +15,7 @@ let captchaId = null;
 let recordedBlob = null;
 let mediaRecorder = null; // Store the recorder instance
 
-// ✅ **Function to Add a Comment to the Page Instantly**
+// **Function to Add a Comment to the Page Instantly**
 function addCommentToDOM(username, comment, isNew) {
     const commentHTML = `
         <div class="comment ${isNew ? "user-comment" : ""}">
@@ -29,7 +29,7 @@ function addCommentToDOM(username, comment, isNew) {
     commentSection.innerHTML += commentHTML;
 }
 
-// ✅ **Handle Comment Submission (Step 1)**
+// **Handle Comment Submission (Step 1)**
 submitCommentBtn.addEventListener("click", async () => {
     userComment = userCommentInput.value.trim();
     if (!userComment) {
@@ -57,7 +57,7 @@ submitCommentBtn.addEventListener("click", async () => {
 });
 
 
-// ✅ **Handle Audio Recording (Step 2)**
+// **Handle Audio Recording (Step 2)**
 async function recordAudio() {
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -97,7 +97,7 @@ async function recordAudio() {
 
 recordBtn.addEventListener("click", recordAudio);
 
-// ✅ **Verify CAPTCHA & Submit Final Comment (Step 3)**
+// **Verify CAPTCHA & Submit Final Comment (Step 3)**
 async function verifyCaptcha() {
     if (!recordedBlob) {
         alert("🚨 Record your answer first!");
@@ -123,11 +123,11 @@ async function verifyCaptcha() {
         console.log("🔍 Raw response:", response);
 
         if (!response.ok) {
-            throw new Error(`❌ HTTP ${response.status} - ${response.statusText}`);
+            throw new Error(` HTTP ${response.status} - ${response.statusText}`);
         }
 
         const result = await response.json();
-        console.log("🎯 Server Response:", result);
+        console.log(" Server Response:", result);
 
         if (result.success) {
             alert("🎉 YAAAAAASSSS BITCHES! 🎊✨");
@@ -141,7 +141,7 @@ async function verifyCaptcha() {
             alert(`❌ Try again! You said: "${result.user_text}", but expected: "${result.expected}"`);
         }
     } catch (error) {
-        console.error("❌ Error verifying CAPTCHA:", error);
+        console.error(" Error verifying CAPTCHA:", error);
         alert("🚨 Something went wrong with verification.");
     } finally {
         submitCaptchaBtn.innerText = "Submit Answer";
