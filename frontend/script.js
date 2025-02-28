@@ -12,6 +12,7 @@ const submitCaptchaBtn = document.getElementById("submit-captcha");
 let userComment = "";
 let captchaId = null;
 let recordedBlob = null;
+let mediaRecorder = null; // Store the recorder instance
 
 // ✅ **Handle Comment Submission (Step 1)**
 submitCommentBtn.addEventListener("click", async () => {
