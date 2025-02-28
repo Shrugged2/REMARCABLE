@@ -8,11 +8,26 @@ const captchaText = document.getElementById("captcha-text");
 const recordBtn = document.getElementById("record-btn");
 const recordingStatus = document.getElementById("recording-status");
 const submitCaptchaBtn = document.getElementById("submit-captcha");
+const commentSection = document.getElementById("comment-section"); // Added to update UI
 
 let userComment = "";
 let captchaId = null;
 let recordedBlob = null;
 let mediaRecorder = null; // Store the recorder instance
+
+// ✅ **Function to Add a Comment to the Page Instantly**
+function addCommentToDOM(username, comment, isNew) {
+    const commentHTML = `
+        <div class="comment ${isNew ? "user-comment" : ""}">
+            <div class="comment-avatar">🧑‍💻</div>
+            <div class="comment-content">
+                <p><strong>${username}</strong> <span class="comment-timestamp"> - Just now</span></p>
+                <p>${comment}</p>
+            </div>
+        </div>
+    `;
+    commentSection.innerHTML += commentHTML;
+}
 
 // ✅ **Handle Comment Submission (Step 1)**
 submitCommentBtn.addEventListener("click", async () => {
@@ -45,7 +60,7 @@ submitCommentBtn.addEventListener("click", async () => {
 async function recordAudio() {
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        const mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder = new MediaRecorder(stream);
         const audioChunks = [];
 
         mediaRecorder.ondataavailable = event => {
@@ -56,12 +71,19 @@ async function recordAudio() {
             recordedBlob = new Blob(audioChunks, { type: "audio/wav" });
             console.log("🎙️ Audio recorded:", recordedBlob);
 
+            // Stop the microphone input to free resources
+            stream.getTracks().forEach(track => track.stop());
+
             // Automatically verify CAPTCHA after recording
             await verifyCaptcha();
         };
 
         mediaRecorder.start();
-        setTimeout(() => mediaRecorder.stop(), 4000);
+        setTimeout(() => {
+            if (mediaRecorder.state !== "inactive") {
+                mediaRecorder.stop();
+            }
+        }, 4000);
 
         recordingStatus.innerText = "🎤 Recording... (4 sec)";
         console.log("🎙️ Recording started...");
@@ -108,7 +130,12 @@ async function verifyCaptcha() {
 
         if (result.success) {
             alert("🎉 YAAAAAASSSS BITCHES! 🎊✨");
-            captchaSection.classList.add("hidden");  // Hide CAPTCHA
+
+            // Hide CAPTCHA section
+            captchaSection.classList.add("hidden");
+
+            // Instantly add comment to UI without refreshing
+            addCommentToDOM("You", userComment, true);
         } else {
             alert(`❌ Try again! You said: "${result.user_text}", but expected: "${result.expected}"`);
         }
