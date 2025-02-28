@@ -14,14 +14,18 @@ let userComment = "";
 let captchaId = null;
 let recordedBlob = null;
 
-// ✅ **Load existing comments on page load**
-async function loadComments() {
+//  Load existing comments on page load
+aasync function loadComments() {
     try {
         const response = await fetch(`${API_BASE_URL}/get-comments`);
         const comments = await response.json();
-        commentSection.innerHTML = `<h2>💬 Comments</h2>`; // Reset section
+
+        // Instead of overwriting, append to existing comments
+        const existingComments = commentSection.innerHTML; // Preserve initial HTML comments
+        let newComments = "";
+
         comments.forEach(comment => {
-            commentSection.innerHTML += `
+            newComments += `
                 <div class="comment">
                     <div class="comment-avatar">🧑‍💻</div>
                     <div class="comment-content">
@@ -31,10 +35,14 @@ async function loadComments() {
                 </div>
             `;
         });
+
+        // Append new comments while keeping existing ones
+        commentSection.innerHTML = existingComments + newComments;
     } catch (error) {
         console.error("❌ Error loading comments:", error);
     }
 }
+
 
 // ✅ **Handle Comment Submission (Step 1)**
 submitCommentBtn.addEventListener("click", async () => {
