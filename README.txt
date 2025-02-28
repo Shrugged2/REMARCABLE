@@ -104,7 +104,7 @@ Github repo (https://github.com/Shrugged2/REMARCABLE)
 - Improve response time & accuracy
 - Active listener for microphone cutoff
 - Multi-language support
-- Different device support
+- Multi-device support
 - Enhance usability & accessibility
 - Add additional quotes
 - Categorize quotes by theme
